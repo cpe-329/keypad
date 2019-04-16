@@ -40,7 +40,7 @@ inline static void row_all_select();
 inline static void row_0_select();
 inline static void row_1_select();
 inline static void row_2_select();
-inline static void row_2_select();
+inline static void row_3_select();
 
 inline static u8 col_all_read();
 inline static u8 col_0_read();

@@ -40,6 +40,7 @@
 void lcd_init();
 void lcd_command(char i);
 void lcd_write(char i);
+void lcd_write_str(char *s, int len);
 
 inline void lcd_home();
 inline void lcd_clear();
@@ -53,9 +54,10 @@ inline void lcd_cursor_off();
 static inline void Nybble();
 static inline void lcd_db_write(unsigned char i);
 
-void inline set_RS();
-void inline clear_RS();
-void inline set_RW();
-void inline clear_RW();
+static inline void lcd_set_rs();
+static inline void clear_RS();
+// static inline void set_RW();
+static inline void clear_RW();
 
+inline void lcd_display_keypad(u8 key);
 #endif /* LCD_H_ */

@@ -48,7 +48,15 @@ void rgb_set(int value){
     P2->OUT |= (value & LED_RGB_STATE_ON);  // Set RGB LED state
 }
 
-inline leds_display_keypad(u8 keypad_val){
+inline void test_leds(){
+    int i;
+    for (i = 0; i < 13; i++){
+        leds_display_keypad(i);
+        delay_ms(1000, FREQ_24_MHZ);
+    }
+}
+
+inline void leds_display_keypad(u8 keypad_val){
     switch (keypad_val){
         case 0:
             led_on();

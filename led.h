@@ -49,6 +49,7 @@ void rgb_init(void);
 // Set 3 bits of RGB LED
 void rgb_set(int value);
 
-inline leds_display_keypad(u8 keypad_val);
+inline void test_leds();
+inline void leds_display_keypad(u8 keypad_val);
 
 #endif

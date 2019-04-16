@@ -28,9 +28,7 @@ inline void keypad_init(void){
 uint8_t keypad_getkey(void){
     row_all_select();
     delay_ms_auto(1);
-    if ((~col_0_read()) & 
-        (~col_1_read()) &
-        (~col_2_read()))
+    if (col_all_read())
         return 12;
 
     row_0_select();  // put row high
@@ -77,17 +75,22 @@ inline static void row_all_select(){
 
 inline static void row_0_select(){
     P2->OUT |= ROW0;
-    P2->OUT &= ~(ROW1 | ROW2);
+    P2->OUT &= ~(ROW1 | ROW2 | ROW3);
 }
 
 inline static void row_1_select(){
     P2->OUT |= ROW1;
-    P2->OUT &= ~(ROW0 | ROW2);
+    P2->OUT &= ~(ROW0 | ROW2 | ROW3);
 }
 
 inline static void row_2_select(){
     P2->OUT |= ROW2;
-    P2->OUT &= ~(ROW0 | ROW1);
+    P2->OUT &= ~(ROW0 | ROW1 | ROW3);
+}
+
+inline static void row_3_select(){
+    P2->OUT |= ROW3;
+    P2->OUT &= ~(ROW0 | ROW1 | ROW2);
 }
 
 inline static u8 col_all_read(){

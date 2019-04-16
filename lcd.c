@@ -65,13 +65,21 @@ void lcd_command(char i){
 
 void lcd_write(char i){
     lcd_db_write(i >> 4); // put data on output Port
-    set_RS();  // D/I=HIGH : send data
+    lcd_set_rs();  // D/I=HIGH : send data
     clear_RW();  // R/W=LOW : Write
     Nybble(); // Clock lower 4 bits
     lcd_db_write(i); // put shifted data on output Port
     Nybble(); // Clock upper 4 bits
     delay_ms_auto(1);  // Wait >37us
     // delay_us_auto(40);  // Datasheet delay, lies
+}
+
+void lcd_write_str(char *s, const int len){
+    int i = 0;
+    while(i < len){
+        lcd_write(s[i]);
+        i--;
+    }
 }
 
 // Wrapper for lcd_command with long delay
@@ -134,28 +142,28 @@ static inline void Nybble(){
 }
 
 // Bring RS / D/I LCD pin HIGH
-static void inline set_RS(){
+static inline void lcd_set_rs(){
     P4->OUT |= RS;
 }
 
 // Bring RS / D/I LCD pin LOW
-void inline clear_RS(){
+static inline void clear_RS(){
     P4->OUT &= ~RS;
 }
+//
+//// Bring RW LCD pin HIGH
+//static inline void set_RW(){
+//    P4->OUT |= RW;
+//}
 
 // Bring RW LCD pin HIGH
-void inline set_RW(){
-    P4->OUT |= RW;
-}
-
-// Bring RW LCD pin HIGH
-void inline clear_RW(){
+static inline void clear_RW(){
     P4->OUT &= ~RW;
 }
 
-void translate_keypad_lcd(uint8_t key){
+inline void lcd_display_keypad(u8 key){
     lcd_clear();
-    delay_ms(1000, FREQ);
+    // delay_ms_auto(1000);
     switch(key){
     case (1):
             lcd_write('1');

@@ -16,13 +16,14 @@
 #include "keypad.h"
 
 
-void init(unsigned int freqeuncy){
+void init(const unsigned int freq){
     DISABLE_WATCHDOG
 
     init_dco();
-	set_dco(freqeuncy);
+	set_dco(freq);
 
 	led_init();
+	rgb_init();
 
 	lcd_init();
 
