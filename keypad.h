@@ -10,7 +10,11 @@
 #define __KEYPAD_H__
 
 #include "msp.h"
+#include <stdint.h>
 
 #include "my_msp.h"
+
+void key_init(void);
+uint8_t keypad_getkey(void);
 
 #endif
