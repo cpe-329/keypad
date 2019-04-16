@@ -24,14 +24,11 @@ void main(void)
 	init(FREQ);
 
 	test_leds();
-	lcd_write('A');
-	delay_ms(500, FREQ);
-//    lcd_write_str(hello_str, 9);
-    delay_ms(1000, FREQ);
-
+	
 	 while(1){
 	    uint8_t key = keypad_getkey();
 	 	leds_display_keypad(key);
 	 	lcd_display_keypad(key);
+//	 	delay_ms(500, FREQ);
 	 }
 }

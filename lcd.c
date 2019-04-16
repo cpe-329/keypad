@@ -5,6 +5,7 @@
  * 
  * CPE 329-17/18 Spring 2019
  */
+#include "stdint.h"
 #include "msp.h"
 
 #include "my_msp.h"
@@ -162,46 +163,40 @@ static inline void clear_RW(){
 }
 
 inline void lcd_display_keypad(uint8_t key){
-    lcd_clear();
-    // delay_ms_auto(1000);
-    switch(key){
-    case (1):
-            lcd_write('1');
-    break;
-    case (2):
-            lcd_write('2');
-    break;
-    case (3):
-            lcd_write('3');
-    break;
-    case (4):
-            lcd_write('4');
-    break;
-    case (5):
-            lcd_write('5');
-    break;
-    case (6):
-            lcd_write('6');
-    break;
-    case (7):
-            lcd_write('7');
-    break;
-    case (8):
-            lcd_write('8');
-    break;
-    case (9):
-            lcd_write('9');
-    break;
-    case (10):
-            lcd_write('*');
-    break;
-    case (11):
-            lcd_write('#');
-    break;
-    case (0):
-            lcd_write('0');
-    break;
-    }
+    lcd_home();
+    lcd_write(translate_keypad(key));
+}
 
+inline unsigned char translate_keypad(uint8_t key){
+    switch(key){
+        case 0:
+            return '0';
+        case 1:
+            return('1');
+        case 2:
+            return('2');
+        case 3:
+            return('3');
+        case 4:
+            return('4');
+        case 5:
+            return('5');
+        case 6:
+            return('6');
+        case 7:
+            return('7');
+        case 8:
+            return '8';
+        case 9:
+            return '9';
+        case 10:
+            return '*';
+        case 11:
+            return '#';
+        case 12:
+            return ' ';
+        default:
+            return '&';
+    }
 }
 

@@ -60,4 +60,5 @@ static inline void clear_RS();
 static inline void clear_RW();
 
 inline void lcd_display_keypad(uint8_t key);
+inline unsigned char translate_keypad(uint8_t key);
 #endif /* LCD_H_ */
