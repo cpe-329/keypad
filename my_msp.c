@@ -5,7 +5,7 @@
  * 
  * CPE 329-17/18 Spring 2019
  */
-
+#include "stdint.h"
 #include "msp.h"
 
 #include "my_msp.h"
@@ -13,6 +13,7 @@
 #include "led.h"
 #include "delay.h"
 #include "lcd.h"
+#include "keypad.h"
 
 
 void init(unsigned int freqeuncy){
@@ -24,4 +25,6 @@ void init(unsigned int freqeuncy){
 	led_init();
 
 	lcd_init();
+
+	keypad_init();
 }

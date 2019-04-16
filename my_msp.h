@@ -10,6 +10,7 @@
 #define __MY_MSP_H__
 
 
+
 #define BIT0 (0b00000001)  // Px.0
 #define BIT1 (0b00000010)  // Px.1
 #define BIT2 (0b00000100)  // Px.2
@@ -38,5 +39,7 @@
 
 // Macro for disabling watchdog
 #define DISABLE_WATCHDOG  WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
+
+typedef uint8_t u8;
 
 #endif
