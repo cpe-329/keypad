@@ -5,6 +5,10 @@
  * 
  * CPE 329-17/18 Spring 2019
  */
+#include "msp.h"
+
+#include "my_msp.h"
+
 #include "lcd.h"
 #include "delay.h"
 #include "msp.h"

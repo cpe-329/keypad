@@ -15,8 +15,8 @@
 
 // Setup LED1
 inline void led_init(void){
-    P1->SEL0 &= ~BIT_0;  // Set sel0 bit low for GPIO
-    P1->SEL1 &= ~BIT_0;  // Set sel1 bit low for GPIO
+    P1->SEL0 &= ~BIT0;  // Set sel0 bit low for GPIO
+    P1->SEL1 &= ~BIT0;  // Set sel1 bit low for GPIO
     P1->DIR |= GPIO_1_MODE_OUTPUT;  // Set P1.0 to output mode 
     P1->OUT &= ~LED1_STATE_ON;  //  Set LED1 state to off
 }
