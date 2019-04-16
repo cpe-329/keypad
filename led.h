@@ -26,6 +26,15 @@
 #define GPIO_RGB_MODE_OUTPUT RGB_LED_PINS
 #define LED_RGB_STATE_ON     RGB_LED_PINS
 
+#define RGB_OFF       (0b00000000)
+#define RGB_RED       (0b00000001)
+#define RGB_GREEN     (0b00000010)
+#define RGB_BLUE      (0b00000100)
+#define RGB_BROWN     (0b00000011)
+#define RGB_PURPLE    (0b00000101)
+#define RGB_TURQUOISE (0b00000110)
+#define RGB_WHITE     (0b00000111)
+
 // Setup LED1
 inline void led_init(void);
 
@@ -39,5 +48,7 @@ void rgb_init(void);
 
 // Set 3 bits of RGB LED
 void rgb_set(int value);
+
+inline leds_display_keypad(u8 keypad_val);
 
 #endif

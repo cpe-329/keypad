@@ -48,3 +48,46 @@ void rgb_set(int value){
     P2->OUT |= (value & LED_RGB_STATE_ON);  // Set RGB LED state
 }
 
+inline leds_display_keypad(u8 keypad_val){
+    switch (keypad_val){
+        case 0:
+            led_on();
+            rgb_set(RGB_OFF);
+        case 1:
+            led_off();
+            rgb_set( RGB_RED);
+        case 2:
+            led_off();
+            rgb_set(RGB_GREEN);
+        case 3:
+            led_off();
+            rgb_set(RGB_BLUE);
+        case 4:
+            led_off();
+            rgb_set(RGB_BROWN);
+        case 5:
+            led_off();
+            rgb_set(RGB_PURPLE);
+        case 6:
+            led_off();
+            rgb_set(RGB_TURQUOISE);
+        case 7:
+            led_off();
+            rgb_set(RGB_WHITE);
+        case 8:
+            led_on();
+            rgb_set(RGB_RED);
+        case 9:
+            led_on();
+            rgb_set(RGB_GREEN);
+        case 10:
+            led_on();
+            rgb_set(RGB_BLUE);
+        case 11:
+            led_on();
+            rgb_set(RGB_BROWN);
+        default:
+            led_off();
+            rgb_set(RGB_OFF);
+    }
+}
