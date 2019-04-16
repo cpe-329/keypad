@@ -16,20 +16,22 @@
 #include "led.h"
 #include "keypad.h"
 
-#define FREQ FREQ_24_MHZ
+#define FREQ FREQ_48_MHZ
 
 void main(void)
 {
-    char *hello_str = "A4 keypad";
+   char *hello_str = "A4 keypad";
 	init(FREQ);
 
 	test_leds();
+	lcd_write('A');
+	delay_ms(500, FREQ);
     lcd_write_str(hello_str, 9);
     delay_ms(2000, FREQ);
 
-	while(1){
-	    u8 key = keypad_getkey();
-		leds_display_keypad(key);
-		lcd_display_keypad(key);
-	}
+	// while(1){
+	//     u8 key = keypad_getkey();
+	// 	leds_display_keypad(key);
+	// 	lcd_display_keypad(key);
+	// }
 }

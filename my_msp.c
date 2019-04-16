@@ -16,7 +16,7 @@
 #include "keypad.h"
 
 
-void init(const unsigned int freq){
+inline void init(const unsigned int freq){
     DISABLE_WATCHDOG
 
     init_dco();
@@ -27,5 +27,5 @@ void init(const unsigned int freq){
 
 	lcd_init();
 
-	keypad_init();
+//	keypad_init();
 }

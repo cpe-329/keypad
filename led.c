@@ -5,7 +5,7 @@
  * 
  * CPE 329-17/18 Spring 2019
  */
-
+#include "stdint.h"
 #include "msp.h"
 
 #include "my_msp.h"
@@ -49,51 +49,67 @@ void rgb_set(int value){
 }
 
 inline void test_leds(){
-    int i;
-    for (i = 0; i < 13; i++){
+    int i = 0;
+    led_on();
+    delay_ms(1000, FREQ_48_MHZ);
+    led_off();
+    while(i < 13){
         leds_display_keypad(i);
-        delay_ms(1000, FREQ_24_MHZ);
+        delay_ms(500, FREQ_48_MHZ);
+        i++;
     }
 }
 
-inline void leds_display_keypad(u8 keypad_val){
+inline void leds_display_keypad(uint8_t keypad_val){
     switch (keypad_val){
         case 0:
             led_on();
             rgb_set(RGB_OFF);
+            break;
         case 1:
             led_off();
             rgb_set( RGB_RED);
+            break;
         case 2:
             led_off();
             rgb_set(RGB_GREEN);
+            break;
         case 3:
             led_off();
             rgb_set(RGB_BLUE);
+            break;
         case 4:
             led_off();
-            rgb_set(RGB_BROWN);
+            rgb_set(RGB_YELLOW);
+            break;
         case 5:
             led_off();
             rgb_set(RGB_PURPLE);
+            break;
         case 6:
             led_off();
             rgb_set(RGB_TURQUOISE);
+            break;
         case 7:
             led_off();
             rgb_set(RGB_WHITE);
+            break;
         case 8:
             led_on();
             rgb_set(RGB_RED);
+            break;
         case 9:
             led_on();
             rgb_set(RGB_GREEN);
+            break;
         case 10:
             led_on();
             rgb_set(RGB_BLUE);
+            break;
         case 11:
             led_on();
-            rgb_set(RGB_BROWN);
+            rgb_set(RGB_YELLOW);
+            break;
         default:
             led_off();
             rgb_set(RGB_OFF);

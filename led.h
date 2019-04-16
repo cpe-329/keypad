@@ -30,7 +30,7 @@
 #define RGB_RED       (0b00000001)
 #define RGB_GREEN     (0b00000010)
 #define RGB_BLUE      (0b00000100)
-#define RGB_BROWN     (0b00000011)
+#define RGB_YELLOW    (0b00000011)
 #define RGB_PURPLE    (0b00000101)
 #define RGB_TURQUOISE (0b00000110)
 #define RGB_WHITE     (0b00000111)

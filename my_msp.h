@@ -42,6 +42,6 @@
 
 typedef uint8_t u8;
 
-void init(const unsigned int freq);
+inline void init(const unsigned int freq);
 
 #endif
