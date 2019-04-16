@@ -26,13 +26,13 @@ inline void keypad_init(void){
 }
 
 uint8_t keypad_getkey(void){
-    row_all_select();
-    delay_ms_auto(1);
-    if (col_all_read())
-        return 12;
+    // row_all_select();
+    // delay_ms_auto(SETTLE_DELAY);
+    // if (col_all_read() == 0)
+    //     return 12;
 
     row_0_select();  // put row high
-    delay_ms_auto(1); //delay for 25 cycles
+    delay_ms(SETTLE_DELAY, FREQ_48_MHZ); //delay for 25 cycles
     if(col_0_read())
        return 1;
     else if (col_1_read())
@@ -41,7 +41,7 @@ uint8_t keypad_getkey(void){
        return 3;
 
     row_1_select();  // put row high
-    delay_ms_auto(1); //delay for 25 cycles
+    delay_ms_auto(SETTLE_DELAY); //delay for 25 cycles
     if(col_0_read())
        return 4;
     else if (col_1_read())
@@ -50,7 +50,7 @@ uint8_t keypad_getkey(void){
        return 6;
 
     row_2_select();  // put row high
-    delay_ms_auto(1); //delay for 25 cycles
+    delay_ms_auto(SETTLE_DELAY); //delay for 25 cycles
     if(col_0_read())
         return 7;
     else if (col_1_read())
@@ -59,7 +59,7 @@ uint8_t keypad_getkey(void){
         return 9;
 
     row_3_select();  // put row high
-    delay_ms_auto(1);  //delay for 25 cycles
+    delay_ms_auto(SETTLE_DELAY);  //delay for 25 cycles
     if(col_0_read())
         return 10;
     else if (col_1_read())
@@ -70,41 +70,41 @@ uint8_t keypad_getkey(void){
 }
 
 inline static void row_all_select(){
-    P2->OUT |= COL_MASK;
+    P5->OUT |= ROW_MASK;
 }
 
 inline static void row_0_select(){
-    P2->OUT |= ROW0;
-    P2->OUT &= ~(ROW1 | ROW2 | ROW3);
+    P5->OUT |= ROW0;
+    P5->OUT &= ~(ROW1 | ROW2 | ROW3);
 }
 
 inline static void row_1_select(){
-    P2->OUT |= ROW1;
-    P2->OUT &= ~(ROW0 | ROW2 | ROW3);
+    P5->OUT |= ROW1;
+    P5->OUT &= ~(ROW0 | ROW2 | ROW3);
 }
 
 inline static void row_2_select(){
-    P2->OUT |= ROW2;
-    P2->OUT &= ~(ROW0 | ROW1 | ROW3);
+    P5->OUT |= ROW2;
+    P5->OUT &= ~(ROW0 | ROW1 | ROW3);
 }
 
 inline static void row_3_select(){
-    P2->OUT |= ROW3;
-    P2->OUT &= ~(ROW0 | ROW1 | ROW2);
+    P5->OUT |= ROW3;
+    P5->OUT &= ~(ROW0 | ROW1 | ROW2);
 }
 
 inline static u8 col_all_read(){
-    return P5->IN & COL_MASK;
+    return P2->IN & COL_MASK;
 }
 
 inline static u8 col_0_read(){
-    return P5->IN & COL0;
+    return P2->IN & COL0;
 }
 
 inline static u8 col_1_read(){
-    return P5->IN & COL1;
+    return P2->IN & COL1;
 }
 
 inline static u8 col_2_read(){
-    return P5->IN & COL2;
+    return P2->IN & COL2;
 }

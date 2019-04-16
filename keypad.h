@@ -32,6 +32,7 @@
 #define COL_MASK (COL2 | COL1 | COL0)
 #define ROW_MASK (ROW3 | ROW2 | ROW1 | ROW0)
 
+#define SETTLE_DELAY 30
 
 inline void keypad_init(void);
 u8 keypad_getkey(void);

@@ -51,11 +51,11 @@ void rgb_set(int value){
 inline void test_leds(){
     int i = 0;
     led_on();
-    delay_ms(1000, FREQ_48_MHZ);
+    delay_ms(250, FREQ_48_MHZ);
     led_off();
     while(i < 13){
         leds_display_keypad(i);
-        delay_ms(500, FREQ_48_MHZ);
+        delay_ms(250, FREQ_48_MHZ);
         i++;
     }
 }
