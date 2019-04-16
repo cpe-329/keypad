@@ -26,8 +26,8 @@
 
 #define ROW0 BIT0
 #define ROW1 BIT1
-#define ROW2 BIT2
-#define ROW3 BIT3
+#define ROW2 BIT6
+#define ROW3 BIT7
 
 #define COL_MASK (COL2 | COL1 | COL0)
 #define ROW_MASK (ROW3 | ROW2 | ROW1 | ROW0)
@@ -35,7 +35,7 @@
 #define SETTLE_DELAY 30
 
 inline void keypad_init(void);
-u8 keypad_getkey(void);
+uint8_t keypad_getkey(void);
 
 inline static void row_all_select();
 inline static void row_0_select();
@@ -43,10 +43,10 @@ inline static void row_1_select();
 inline static void row_2_select();
 inline static void row_3_select();
 
-inline static u8 col_all_read();
-inline static u8 col_0_read();
-inline static u8 col_1_read();
-inline static u8 col_2_read();
+inline static uint8_t col_all_read();
+inline static uint8_t col_0_read();
+inline static uint8_t col_1_read();
+inline static uint8_t col_2_read();
 
 
 #endif

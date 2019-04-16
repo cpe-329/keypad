@@ -16,13 +16,13 @@
 inline void keypad_init(void){
     P2->SEL0 &= ~COL_MASK;
     P2->SEL1 &= ~COL_MASK;
-    P2->DIR |= COL_MASK;
+    P2->DIR &= ~COL_MASK;
     P2->REN |= COL_MASK;
     P2->OUT &= ~COL_MASK;
 
     P5->SEL0 &= ~ROW_MASK;
     P5->SEL1 &= ~ROW_MASK;
-    P5->DIR &= ~ROW_MASK;   
+    P5->DIR |= ROW_MASK;   
 }
 
 uint8_t keypad_getkey(void){
@@ -93,18 +93,18 @@ inline static void row_3_select(){
     P5->OUT &= ~(ROW0 | ROW1 | ROW2);
 }
 
-inline static u8 col_all_read(){
+inline static uint8_t col_all_read(){
     return P2->IN & COL_MASK;
 }
 
-inline static u8 col_0_read(){
+inline static uint8_t col_0_read(){
     return P2->IN & COL0;
 }
 
-inline static u8 col_1_read(){
+inline static uint8_t col_1_read(){
     return P2->IN & COL1;
 }
 
-inline static u8 col_2_read(){
+inline static uint8_t col_2_read(){
     return P2->IN & COL2;
 }

@@ -59,5 +59,5 @@ static inline void clear_RS();
 // static inline void set_RW();
 static inline void clear_RW();
 
-inline void lcd_display_keypad(u8 key);
+inline void lcd_display_keypad(uint8_t key);
 #endif /* LCD_H_ */

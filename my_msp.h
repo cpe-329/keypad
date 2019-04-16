@@ -40,8 +40,6 @@
 // Macro for disabling watchdog
 #define DISABLE_WATCHDOG  WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
 
-typedef uint8_t u8;
-
 inline void init(const unsigned int freq);
 
 #endif

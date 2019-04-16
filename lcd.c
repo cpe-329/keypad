@@ -161,7 +161,7 @@ static inline void clear_RW(){
     P4->OUT &= ~RW;
 }
 
-inline void lcd_display_keypad(u8 key){
+inline void lcd_display_keypad(uint8_t key){
     lcd_clear();
     // delay_ms_auto(1000);
     switch(key){

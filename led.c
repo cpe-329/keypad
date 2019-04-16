@@ -64,7 +64,7 @@ inline void leds_display_keypad(uint8_t keypad_val){
     switch (keypad_val){
         case 0:
             led_on();
-            rgb_set(RGB_OFF);
+            rgb_set(RGB_WHITE);
             break;
         case 1:
             led_off();

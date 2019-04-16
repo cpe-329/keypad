@@ -50,6 +50,6 @@ void rgb_init(void);
 void rgb_set(int value);
 
 inline void test_leds();
-inline void leds_display_keypad(u8 keypad_val);
+inline void leds_display_keypad(uint8_t keypad_val);
 
 #endif
