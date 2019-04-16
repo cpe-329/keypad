@@ -167,28 +167,40 @@ inline void lcd_display_keypad(u8 key){
     switch(key){
     case (1):
             lcd_write('1');
+    break;
     case (2):
             lcd_write('2');
+    break;
     case (3):
             lcd_write('3');
+    break;
     case (4):
             lcd_write('4');
+    break;
     case (5):
             lcd_write('5');
+    break;
     case (6):
             lcd_write('6');
+    break;
     case (7):
             lcd_write('7');
+    break;
     case (8):
             lcd_write('8');
+    break;
     case (9):
             lcd_write('9');
+    break;
     case (10):
             lcd_write('*');
+    break;
     case (11):
             lcd_write('#');
+    break;
     case (0):
             lcd_write('0');
+    break;
     }
 
 }
