@@ -12,6 +12,8 @@
 
 #include "my_msp.h"
 #include "delay.h"
+#include "lcd.h"
+#include "led.h"
 #include "keypad.h"
 
 #define DCO_FREQ FREQ_24_MHZ
@@ -21,6 +23,9 @@ void main(void)
 	init(DCO_FREQ);
 
 	while(1){
-		rgb_set(translate_keypad_rgb(keypad_getkey()));
+	    u8 key = keypad_getkey();
+		rgb_set(translate_keypad_rgb(key));
+
+
 	}
 }

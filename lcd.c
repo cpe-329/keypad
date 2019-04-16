@@ -153,3 +153,35 @@ void inline clear_RW(){
     P4->OUT &= ~RW;
 }
 
+void translate_keypad_lcd(uint8_t key){
+    lcd_clear();
+    delay_ms(1000, FREQ);
+    switch(key){
+    case (1):
+            lcd_write('1');
+    case (2):
+            lcd_write('2');
+    case (3):
+            lcd_write('3');
+    case (4):
+            lcd_write('4');
+    case (5):
+            lcd_write('5');
+    case (6):
+            lcd_write('6');
+    case (7):
+            lcd_write('7');
+    case (8):
+            lcd_write('8');
+    case (9):
+            lcd_write('9');
+    case (10):
+            lcd_write('*');
+    case (11):
+            lcd_write('#');
+    case (0):
+            lcd_write('0');
+    }
+
+}
+
