@@ -1,4 +1,4 @@
-/**
+/*
  * lcd.h
  * 
  * Danica Fujiwara & Spencer Shaw
@@ -8,6 +8,8 @@
 
 #ifndef LCD_H_
 #define LCD_H_
+
+#include "msp.h"
 
 //  1   2  3   4   5     6    7   8   9  10   11   12  13    14   15   16 
 // VSS VDD V0  RS  RW    E   DB0 DB1 DB2 DB3  DB4  DB5  DB6  DB7 LED+ LED- 
@@ -61,4 +63,5 @@ static inline void clear_RW();
 
 inline void lcd_display_keypad(uint8_t key);
 inline unsigned char translate_keypad(uint8_t key);
-#endif /* LCD_H_ */
+
+#endif 

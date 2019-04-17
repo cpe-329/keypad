@@ -1,4 +1,4 @@
-/**
+/*
  * led.h
  * 
  * Danica Fujiwara & Spencer Shaw
@@ -10,7 +10,6 @@
 #define __LED_H__
 
 #include "msp.h"
-
 #include "my_msp.h"
 
 #define LED1_PIN P1_0
@@ -49,7 +48,10 @@ void rgb_init(void);
 // Set 3 bits of RGB LED
 void rgb_set(int value);
 
+// Blink all combinations of LEDs
 inline void test_leds();
+
+// Display keypad value on LEDs
 inline void leds_display_keypad(uint8_t keypad_val);
 
 #endif

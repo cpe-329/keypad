@@ -1,4 +1,4 @@
-/**
+/*
  * my_msp.h
  * 
  * Danica Fujiwara & Spencer Shaw
@@ -9,16 +9,6 @@
 #ifndef __MY_MSP_H__
 #define __MY_MSP_H__
 
-
-
-// #define BIT0 (0b00000001)  // Px.0
-// #define BIT1 (0b00000010)  // Px.1
-// #define BIT2 (0b00000100)  // Px.2
-// #define BIT3 (0b00001000)  // Px.3
-// #define BIT4 (0b00010000)  // Px.4 
-// #define BIT5 (0b00100000)  // Px.5
-// #define BIT6 (0b01000000)  // Px.6
-// #define BIT7 (0b10000000)  // Px.7
 
 // Port 1
 #define P1_0 BIT0  // P1.0
@@ -40,6 +30,7 @@
 // Macro for disabling watchdog
 #define DISABLE_WATCHDOG  WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
 
+// Initialize all used periphrials
 inline void init(const unsigned int freq);
 
 #endif

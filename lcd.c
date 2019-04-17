@@ -1,20 +1,18 @@
-/**
+/*
  * lcd.c
  * 
  * Danica Fujiwara & Spencer Shaw
  * 
  * CPE 329-17/18 Spring 2019
  */
+
 #include "stdint.h"
 #include "msp.h"
-
 #include "my_msp.h"
-
 #include "lcd.h"
 #include "delay.h"
-#include "msp.h"
 
-
+// Initialize LCD
 void lcd_init(){
     // Setup GPIO pins
     P4->SEL0 &= ~LCD_PINS_MASK;  // Initialize all P4 pins
@@ -151,22 +149,19 @@ static inline void lcd_set_rs(){
 static inline void clear_RS(){
     P4->OUT &= ~RS;
 }
-//
-//// Bring RW LCD pin HIGH
-//static inline void set_RW(){
-//    P4->OUT |= RW;
-//}
 
 // Bring RW LCD pin HIGH
 static inline void clear_RW(){
     P4->OUT &= ~RW;
 }
 
+// Display key from keypad
 inline void lcd_display_keypad(uint8_t key){
-    lcd_home();
-    lcd_write(translate_keypad(key));
+    lcd_home();  // Return to first position
+    lcd_write(translate_keypad(key));  // Translate and write value
 }
 
+// Translate keypad values to char
 inline unsigned char translate_keypad(uint8_t key){
     switch(key){
         case 0:

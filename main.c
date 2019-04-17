@@ -1,4 +1,4 @@
-/**
+/*
  * main.c
  * 
  * Danica Fujiwara & Spencer Shaw
@@ -7,9 +7,7 @@
  */
 
 #include "stdint.h"
-
 #include "msp.h"
-
 #include "my_msp.h"
 #include "delay.h"
 #include "lcd.h"
@@ -20,15 +18,12 @@
 
 void main(void)
 {
-//   char *hello_str = "A4 keypad";
-	init(FREQ);
-
-	test_leds();
+	init(FREQ);  // Initialize periphrials
+	test_leds();  // Blink LEDs to say hellow
 	
-	 while(1){
-	    uint8_t key = keypad_getkey();
-	 	leds_display_keypad(key);
-	 	lcd_display_keypad(key);
-//	 	delay_ms(500, FREQ);
-	 }
+	while(1){  // Loop
+		uint8_t key = keypad_getkey();  // Read key from keypad
+	 	leds_display_keypad(key);  // Display key on LEDs
+	 	lcd_display_keypad(key);  // Display key on LCD
+	}
 }

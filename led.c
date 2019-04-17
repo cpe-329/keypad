@@ -1,15 +1,14 @@
-/**
+/*
  * led.c
  * 
  * Danica Fujiwara & Spencer Shaw
  * 
  * CPE 329-17/18 Spring 2019
  */
+
 #include "stdint.h"
 #include "msp.h"
-
 #include "my_msp.h"
-
 #include "led.h"
 #include "delay.h"
 
@@ -25,11 +24,9 @@ inline void led_init(void){
 inline void led_toggle(void){
     P1->OUT ^= LED1_STATE_ON;  // XOR LED1 state to toggle
 }
-
 inline void led_on(void){
     P1->OUT |= LED1_STATE_ON;
 }
-
 inline void led_off(void){
     P1->OUT &= ~LED1_STATE_ON;
 }
@@ -48,18 +45,17 @@ void rgb_set(int value){
     P2->OUT |= (value & LED_RGB_STATE_ON);  // Set RGB LED state
 }
 
+// Blink all combinations of LEDs
 inline void test_leds(){
     int i = 0;
-    led_on();
-    delay_ms(250, FREQ_48_MHZ);
-    led_off();
     while(i < 13){
         leds_display_keypad(i);
-        delay_ms(250, FREQ_48_MHZ);
+        delay_ms(50, FREQ_48_MHZ);
         i++;
     }
 }
 
+// Display keypad value on LEDs
 inline void leds_display_keypad(uint8_t keypad_val){
     switch (keypad_val){
         case 0:

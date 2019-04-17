@@ -1,4 +1,4 @@
-/**
+/*
  * delay.h
  * 
  * Danica Fujiwara & Spencer Shaw
